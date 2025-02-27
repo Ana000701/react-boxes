@@ -23,7 +23,7 @@ export function useSignIn() {
       // 3. UI 提示訊息
       toast.success(`登入成功`);
 
-      // 4. 跳轉回資訊頁
+      // 4. 跳轉回首頁
       navigate("/", { replace: true });
     },
     onError: (error) => {

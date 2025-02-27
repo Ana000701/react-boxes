@@ -30,11 +30,11 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="map" element={<MapPage />}>
+          <Route path="/map" element={<MapPage />}>
             <Route index element={<Map />} />
             <Route path=":stationId" element={<StationInfo />} />
           </Route>
-          <Route path="member" element={<Member />}>
+          <Route path="/member" element={<Member />}>
             <Route
               index
               element={<Navigate replace to="normal/memberInfo" />}
@@ -59,8 +59,8 @@ function App() {
               />
             </Route>
           </Route>
-          <Route path="signin" element={<Signin />} />
-          <Route path="signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<PageNotFound />} />
 
           {/* 測試用 */}
