@@ -1,3 +1,4 @@
+import { useMember } from "@/hooks/useMember";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const style = {
@@ -15,6 +16,7 @@ const style = {
 
 function MemberNav() {
   const location = useLocation();
+  const { role } = useMember();
 
   const getNavType = () => {
     if (location.pathname.startsWith("/member/normal")) {
@@ -41,14 +43,16 @@ function MemberNav() {
           >
             <h4>會員頁面</h4>
           </NavLink>
-          <NavLink
-            to="/member/admin"
-            className={({ isActive }) =>
-              isActive ? style.mainNavActive : style.mainNav
-            }
-          >
-            <h4>管理者頁面</h4>
-          </NavLink>
+          {role === "storeOwner" && (
+            <NavLink
+              to="/member/admin"
+              className={({ isActive }) =>
+                isActive ? style.mainNavActive : style.mainNav
+              }
+            >
+              <h4>管理者頁面</h4>
+            </NavLink>
+          )}
         </div>
       </nav>
       {navType === "normal" ? <NormalNav /> : <AdminNav />}
