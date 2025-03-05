@@ -44,7 +44,7 @@ export async function apiGetBoxesForAdminManaging(stationId) {
     let { data: boxes, error } = await supabase
       .from("boxes")
       .select("*")
-      .in("status", ["售出", "自用", "可認領"])
+      .in("status", ["自用", "可認領"])
       .eq("station_id", stationId);
 
     if (error) throw error;

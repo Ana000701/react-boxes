@@ -23,7 +23,7 @@ const totalBoxes = function (boxes) {
 };
 
 function AdminInfo() {
-  const { station, isLoadingStation } = useStationAdmin();
+  const { station, isLoadingStation } = useStationAdmin(10);
   const { boxes, isLoadingBoxes } = useBoxesTotalForSelling(10);
   if (isLoadingStation) return <Spinner />;
   if (isLoadingBoxes) return <Spinner />;
